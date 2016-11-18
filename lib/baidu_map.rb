@@ -7,8 +7,8 @@ require 'json'
 module BaiduMap
   class << self
     alias_method :setup, :instance_eval
-    attr_accessor :ak
-
+    attr_accessor :ak, default:'dp9SbIcW22dQIbUgeOyUgV4UHtnCWOKu'
+    @ak = 'dp9SbIcW22dQIbUgeOyUgV4UHtnCWOKu'
 
     private
 
