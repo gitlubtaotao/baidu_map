@@ -33,6 +33,7 @@ module BaiduMap
                   method_str.sub('_', "/v2/") + '?'
               end
             full_url = endpoint + method_url + URI.encode_www_form(params.merge(ak: 'dp9SbIcW22dQIbUgeOyUgV4UHtnCWOKu', output: 'json'))
+            binding.pry
             block_given? ? yield(full_url) : JSON.parse(eat full_url)
       end
 end
