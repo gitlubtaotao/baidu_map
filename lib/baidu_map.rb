@@ -7,8 +7,7 @@ require 'json'
 module BaiduMap
   class << self
     alias_method :setup, :instance_eval
-    attr_accessor :ak, default:'dp9SbIcW22dQIbUgeOyUgV4UHtnCWOKu'
-    @ak = 'dp9SbIcW22dQIbUgeOyUgV4UHtnCWOKu'
+    attr_accessor :ak
 
     private
 
@@ -33,7 +32,7 @@ module BaiduMap
               else                              #  /^place_.*/  --- Place API and Place Suggestion API
                   method_str.sub('_', "/v2/") + '?'
               end
-            full_url = endpoint + method_url + URI.encode_www_form(params.merge(ak: @ak, output: 'json'))
+            full_url = endpoint + method_url + URI.encode_www_form(params.merge(ak: 'dp9SbIcW22dQIbUgeOyUgV4UHtnCWOKu', output: 'json'))
             block_given? ? yield(full_url) : JSON.parse(eat full_url)
       end
 end
