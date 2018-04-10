@@ -25,7 +25,10 @@ module BaiduMap
                   			'/routematrix/v2/riding?'
               			when 'routematrix_walking'
                   			'/routematrix/v2/walking?'#批量行驶距离计算API(步行)
-              			else                              #  /^place_.*/  --- Place API and Place Suggestion API
+              			when 'suggestion'
+                      'place/v2/suggestion?'
+                    else                              #  /^place_.*/  --- Place API and Place Suggestion API
+
                   			method_str.sub('_', "/v2/") + '?'
               			end
             			full_url = endpoint + method_url + URI.encode_www_form(params.merge(ak: @ak, output: 'json'))
